@@ -98,6 +98,8 @@
         set guioptions-=T
         " Use codeschool.
         colorscheme codeschool
+    else
+        colorscheme Tomorrow
     endif
 " }}}
 
