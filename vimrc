@@ -27,6 +27,8 @@
     set noswapfile
     " Set leader key to comma.
     let mapleader=','
+    " Use dark background in color scheme
+    set background=dark
 " }}}
 
 " Vundle {{{
@@ -99,7 +101,10 @@
         " Use codeschool.
         colorscheme codeschool
     else
-        colorscheme Tomorrow
+        " Use more colors in terminal
+        set t_Co=256
+        " Use gruvbox because codeschool looks not good in term
+        colorscheme gruvbox
     endif
 " }}}
 
