@@ -55,4 +55,4 @@ Features
 * Use Monospace as the default font in GUI
 * Map leader key to comma
 * Key bindings to frequent fugitive commands
-
+* Disable backup and swapfile
