@@ -64,6 +64,8 @@
     Plugin 'mbbill/undotree'
     " Emmet
     Plugin 'mattn/emmet-vim'
+    " Virtualenv
+    Plugin 'jmcantrell/vim-virtualenv'
 
     call vundle#end()
     filetype plugin indent on
