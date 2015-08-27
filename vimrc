@@ -1,5 +1,34 @@
 " vim:foldmethod=marker
 
+" Edit {{{
+    " Show line number on the left.
+    set number
+    " Always show the line number and column number in the status bar.
+    set ruler
+    " Use syntax highlighting.
+    syntax on
+    " Remap Escape to more convenient jj.
+    inoremap jj <esc>
+    " Use space instead of tab.
+    set expandtab
+    " Set indentation to 4 space by default.
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    " Show a visual line under the cursor's current line.
+    set cursorline
+    " Show the matching brackets.
+    set showmatch
+    " Complete in command.
+    set wildmenu
+    set wildmode=longest,list,full
+    " No backup, no swap.
+    set nobackup
+    set noswapfile
+    " Set leader key to comma.
+    let mapleader=','
+" }}}
+
 " Vundle {{{
     set nocompatible
     filetype off
@@ -55,35 +84,6 @@
         " Bind shortcuts.
         nnoremap <C-c>la :PymodeLintAuto<CR>
     " }}}
-" }}}
-
-" Edit {{{
-    " Show line number on the left.
-    set number
-    " Always show the line number and column number in the status bar.
-    set ruler
-    " Use syntax highlighting.
-    syntax on
-    " Remap Escape to more convenient jj.
-    inoremap jj <esc>
-    " Use space instead of tab.
-    set expandtab
-    " Set indentation to 4 space by default.
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-    " Set leader key to comma.
-    let mapleader=','
-    " Show a visual line under the cursor's current line.
-    set cursorline
-    " Show the matching brackets.
-    set showmatch
-    " Complete in command.
-    set wildmenu
-    set wildmode=longest,list,full
-    " No backup, no swap.
-    set nobackup
-    set noswapfile
 " }}}
 
 " GUI and console {{{
