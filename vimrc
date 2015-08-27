@@ -62,6 +62,8 @@
     Plugin 'bling/vim-bufferline'
     " Helpful undotree
     Plugin 'mbbill/undotree'
+    " Emmet
+    Plugin 'mattn/emmet-vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -99,6 +101,10 @@
             set undofile
         endif
     " }}}
+    " Emmet {{{
+        " Enable Emmet only in HTML and CSS
+        let g:user_emmet_install_global = 0
+    " }}}
 " }}}
 
 " GUI and console {{{
@@ -132,6 +138,8 @@
         autocmd FileType python match Excess /\%80v.*/
         " Do not wrap lines in Python.
         autocmd FileType python set nowrap
+        " Enable Emmet in HTML and CSS
+        autocmd FileType html,css EmmetInstall
     augroup END
 " }}}
 
