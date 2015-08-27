@@ -56,6 +56,14 @@
     Plugin 'scrooloose/nerdtree'
     " Git plugin for NerdTree.
     Plugin 'Xuyuanp/nerdtree-git-plugin'
+    " Show a git diff in the gutter.
+    Plugin 'airblade/vim-gitgutter'
+    " Show buffers in the status line.
+    Plugin 'bling/vim-bufferline'
+    " Helpful undotree
+    Plugin 'mbbill/undotree'
+    " Enhance shell by promptline.
+    Plugin 'edkolev/promptline.vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -69,14 +77,11 @@
     nnoremap <leader>gc :Gcommit<CR>
     " Always show the airline.
     set laststatus=2
-    " NerdTree settings {{{
+    " NerdTree {{{
         "Toogle key binding.
         nnoremap <C-n> :NERDTreeToggle<CR>
-        " Open NerdTree if no arguments are given at startup.
-        autocmd StdinReadPre * let s:std_in=1
-        autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     " }}}
-    " Python-mode settings {{{
+    " Python-mode {{{
         " Do not display colorcolumn.
         let g:pymode_options_colorcolumn = 0
         " Search rope project directory in parent directories.
@@ -85,6 +90,16 @@
         let g:pymode_rope_autoimport = 1
         " Bind shortcuts.
         nnoremap <C-c>la :PymodeLintAuto<CR>
+    " }}}
+    " Undotree {{{
+        " Key shortcuts for undotree
+        nnoremap <leader>u :UndotreeToggle<cr>
+        " Persistant undo
+        if has('persistent_undo')
+            silent call system('mkdir -p ~/.vim-undo')
+            set undodir=~/.vim-undo
+            set undofile
+        endif
     " }}}
 " }}}
 
