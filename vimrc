@@ -116,7 +116,7 @@
 " GUI and console {{{
     if has('gui_running')
         " Set font family to Monospace and size to 10.
-        set guifont=Inconsolata\ 11
+        set guifont=Monospace\ 10
         " Hide right scroll bar.
         set guioptions-=r
         " Hide left scroll bar.
