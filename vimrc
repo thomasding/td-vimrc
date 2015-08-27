@@ -64,8 +64,6 @@
     Plugin 'mbbill/undotree'
     " Emmet
     Plugin 'mattn/emmet-vim'
-    " Virtualenv
-    Plugin 'jmcantrell/vim-virtualenv'
 
     call vundle#end()
     filetype plugin indent on
@@ -88,10 +86,14 @@
         let g:pymode_options_colorcolumn = 0
         " Search rope project directory in parent directories.
         let g:pymode_rope_lookup_project = 1
-        " Autoimport.
-        let g:pymode_rope_autoimport = 1
         " Bind shortcuts.
-        nnoremap <C-c>la :PymodeLintAuto<CR>
+        nnoremap <C-c>pep :PymodeLintAuto<CR>
+        " Pymode do not support virtualenv and python3 nicely, so I have to
+        " disable the doc and autocompletion which does not work at all.
+        let g:pymode_doc = 0
+        let g:pymode_doc_bind = ''
+        let g:pymode_run = 0
+        let g:pymode_rope_completion = 0
     " }}}
     " Undotree {{{
         " Key shortcuts for undotree
@@ -129,7 +131,7 @@
     endif
 " }}}
 
-" Languages {{{
+" Autocmds {{{
     augroup vimrc_autocmds
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
@@ -142,6 +144,8 @@
         autocmd FileType python set nowrap
         " Enable Emmet in HTML and CSS
         autocmd FileType html,css EmmetInstall
+        " Close Preview window after autocompletion
+        autocmd CompleteDone * pclose
     augroup END
 " }}}
 
