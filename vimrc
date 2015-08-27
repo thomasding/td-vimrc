@@ -62,8 +62,6 @@
     Plugin 'bling/vim-bufferline'
     " Helpful undotree
     Plugin 'mbbill/undotree'
-    " Enhance shell by promptline.
-    Plugin 'edkolev/promptline.vim'
 
     call vundle#end()
     filetype plugin indent on
