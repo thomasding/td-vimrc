@@ -116,13 +116,15 @@
 " GUI and console {{{
     if has('gui_running')
         " Set font family to Monospace and size to 10.
-        set guifont=Monospace\ 10
+        set guifont=Inconsolata\ 11
         " Hide right scroll bar.
         set guioptions-=r
         " Hide left scroll bar.
         set guioptions-=L
         " Hide toolbar.
         set guioptions-=T
+        " Hide menubar.
+        set guioptions-=m
         " Use codeschool.
         colorscheme codeschool
     else
