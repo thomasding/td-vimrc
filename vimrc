@@ -58,8 +58,6 @@
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     " Show a git diff in the gutter.
     Plugin 'airblade/vim-gitgutter'
-    " Show buffers in the status line.
-    Plugin 'bling/vim-bufferline'
     " Helpful undotree
     Plugin 'mbbill/undotree'
     " Emmet
@@ -72,9 +70,13 @@
 " Plugin settings {{{
     " Exclude these files in CtrlP.
     set wildignore+=*.pyc
-    " Shortcuts for fugitive.
-    nnoremap <leader>gs :Gstatus<CR>
-    nnoremap <leader>gc :Gcommit<CR>
+    " Fugitive {{{
+        nnoremap <leader>gs :Gstatus<CR>
+        nnoremap <leader>gc :Gcommit<CR>
+        nnoremap <leader>gw :Gwrite<CR>
+        nnoremap <leader>gd :Gdiff<CR>
+        nnoremap <leader>gb :Gblame<CR>
+    " }}}
     " Always show the airline.
     set laststatus=2
     " NerdTree {{{
@@ -138,7 +140,7 @@
         autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
         autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
         " Highlight characters past column 80 in Python.
-        autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+        autocmd FileType python highlight Excess ctermbg=Red guibg=Red
         autocmd FileType python match Excess /\%80v.*/
         " Do not wrap lines in Python.
         autocmd FileType python set nowrap
