@@ -45,6 +45,11 @@ Supported Plugins
 * Surround: an easy-to-use quoting and parenthesizing plugin
 * Colorschemes: one colorscheme pack that rule them all!
 * NERDTree: a powerful file manager enhanced with NERDTree-git-plugin so that it works with git
+* GitGutter: show git diff in gutter
+* Bufferline: show buffers in airline
+* UndoTree: display undotree in a more visual way
+* Emmet: a powerful HTML/CSS assistant
+* Virtualenv: a convenient virtualenv switcher
 
 Features
 ===========
@@ -56,3 +61,4 @@ Features
 * Map leader key to comma
 * Key bindings to frequent fugitive commands
 * Disable backup and swapfile
+* Use ,u to toogle undotree
