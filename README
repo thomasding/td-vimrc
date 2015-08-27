@@ -46,10 +46,8 @@ Supported Plugins
 * Colorschemes: one colorscheme pack that rule them all!
 * NERDTree: a powerful file manager enhanced with NERDTree-git-plugin so that it works with git
 * GitGutter: show git diff in gutter
-* Bufferline: show buffers in airline
 * UndoTree: display undotree in a more visual way
 * Emmet: a powerful HTML/CSS assistant
-* Virtualenv: a convenient virtualenv switcher
 
 Features
 ===========
