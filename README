@@ -20,11 +20,15 @@ Installation
 
     $ ln -s ~/.td-vimrc/vimrc ~/.vimrc
 
-3. Install required plugins:
+3. Install Vundle:
+
+    $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+4. Install other required plugins:
 
     $ vim +PluginInstall +qa
 
-4. (Optional) Create and edit your customized vimrc (which will be loaded after .vimrc is done):
+5. (Optional) Create and edit your customized vimrc (which will be loaded after .vimrc is done):
     
     $ vim ~/.vimrc.local
 
