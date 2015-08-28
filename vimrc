@@ -27,8 +27,13 @@
     set noswapfile
     " Set leader key to comma.
     let mapleader=','
-    " Use dark background in color scheme
+    " Use dark background in color scheme.
     set background=dark
+    " Enable case-insensitive incremental search and highlight.
+    set ignorecase
+    set smartcase
+    set incsearch
+    set hlsearch
 " }}}
 
 " Vundle {{{
@@ -90,12 +95,6 @@
         let g:pymode_rope_lookup_project = 1
         " Bind shortcuts.
         nnoremap <C-c>pep :PymodeLintAuto<CR>
-        " Pymode do not support virtualenv and python3 nicely, so I have to
-        " disable the doc and autocompletion which does not work at all.
-        let g:pymode_doc = 0
-        let g:pymode_doc_bind = ''
-        let g:pymode_run = 0
-        let g:pymode_rope_completion = 0
     " }}}
     " Undotree {{{
         " Key shortcuts for undotree
