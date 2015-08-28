@@ -67,6 +67,8 @@
     Plugin 'mbbill/undotree'
     " Emmet
     Plugin 'mattn/emmet-vim'
+    " Multple cursor editing like Sublime Text
+    Plugin 'terryma/vim-multiple-cursors'
 
     call vundle#end()
     filetype plugin indent on
@@ -86,7 +88,7 @@
     set laststatus=2
     " NerdTree {{{
         "Toogle key binding.
-        nnoremap <C-n> :NERDTreeToggle<CR>
+        nnoremap <leader>n :NERDTreeToggle<CR>
     " }}}
     " Python-mode {{{
         " Do not display colorcolumn.

@@ -48,6 +48,7 @@ Supported Plugins
 * GitGutter: show git diff in gutter
 * UndoTree: display undotree in a more visual way
 * Emmet: a powerful HTML/CSS assistant
+* Multiple-cursor: a multiple cursor plugin like Sublime text
 
 Features
 ===========
