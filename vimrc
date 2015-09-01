@@ -69,6 +69,10 @@
     Plugin 'mattn/emmet-vim'
     " Multple cursor editing like Sublime Text
     Plugin 'terryma/vim-multiple-cursors'
+    " Jinja2 support
+    Plugin 'mitsuhiko/vim-jinja'
+    " Github Flavored Markdown
+    Plugin 'jtratner/vim-flavored-markdown'
 
     call vundle#end()
     filetype plugin indent on
@@ -140,17 +144,18 @@
     augroup vimrc_autocmds
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
-        autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-        autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd FileType html,javascript,htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd FileType html,css,htmldjango EmmetInstall
         " Highlight characters past column 80 in Python.
         autocmd FileType python highlight Excess ctermbg=Red guibg=Red
         autocmd FileType python match Excess /\%80v.*/
         " Do not wrap lines in Python.
         autocmd FileType python set nowrap
         " Enable Emmet in HTML and CSS
-        autocmd FileType html,css EmmetInstall
         " Close Preview window after autocompletion
         autocmd CompleteDone * pclose
+        " Use GFM instead of standard markdown
+        autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
     augroup END
 " }}}
 
