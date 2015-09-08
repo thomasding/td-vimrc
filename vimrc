@@ -81,6 +81,7 @@
 " Plugin settings {{{
     " Exclude these files in CtrlP.
     set wildignore+=*.pyc
+    let g:ctrlp_custom_ignore = 'node_modules'
     " Fugitive {{{
         nnoremap <leader>gs :Gstatus<CR>
         nnoremap <leader>gc :Gcommit<CR>
