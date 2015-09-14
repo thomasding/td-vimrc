@@ -73,6 +73,12 @@
     Plugin 'mitsuhiko/vim-jinja'
     " Github Flavored Markdown
     Plugin 'jtratner/vim-flavored-markdown'
+    " Enahanced javascript syntax
+    Plugin 'pangloss/vim-javascript'
+    " JSX language
+    Plugin 'mxw/vim-jsx'
+    " HTML5 syntax
+    Plugin 'othree/html5.vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -116,6 +122,9 @@
     " Emmet {{{
         " Enable Emmet only in HTML and CSS
         let g:user_emmet_install_global = 0
+    " }}}
+    " JSX {{{
+        let g:jsx_ext_required = 0
     " }}}
 " }}}
 
