@@ -51,8 +51,6 @@
     Plugin 'bling/vim-airline'
     " Git plugin.
     Plugin 'tpope/vim-fugitive'
-    " Python in VIM.
-    Plugin 'klen/python-mode'
     " Parenthesizing and quoting plugin.
     Plugin 'tpope/vim-surround'
     " A colorscheme pack.
@@ -67,8 +65,6 @@
     Plugin 'mbbill/undotree'
     " Emmet
     Plugin 'mattn/emmet-vim'
-    " Multple cursor editing like Sublime Text
-    Plugin 'terryma/vim-multiple-cursors'
     " Jinja2 support
     Plugin 'mitsuhiko/vim-jinja'
     " Github Flavored Markdown
@@ -77,17 +73,29 @@
     Plugin 'pangloss/vim-javascript'
     " JSX language
     Plugin 'mxw/vim-jsx'
-    " HTML5 syntax
+    " Tmux status line
+    Plugin 'edkolev/tmuxline.vim'
+    " Tmux navigation
+    Plugin 'christoomey/vim-tmux-navigator'
+    " PHP better indent with html
+    Plugin 'captbaritone/better-indent-support-for-php-with-html'
+    " PHP highlighting
+    Plugin 'StanAngeloff/php.vim'
+    " HTML5 highlighting
     Plugin 'othree/html5.vim'
+    " All-in-one syntax checker
+    Plugin 'scrooloose/syntastic'
 
     call vundle#end()
     filetype plugin indent on
 " }}}
 
 " Plugin settings {{{
-    " Exclude these files in CtrlP.
-    set wildignore+=*.pyc
-    let g:ctrlp_custom_ignore = 'node_modules'
+    " Ctrl-P {{{
+        " Exclude these files in CtrlP.
+        set wildignore+=*.pyc
+        let g:ctrlp_custom_ignore = 'node_modules'
+    " }}}
     " Fugitive {{{
         nnoremap <leader>gs :Gstatus<CR>
         nnoremap <leader>gc :Gcommit<CR>
@@ -95,19 +103,13 @@
         nnoremap <leader>gd :Gdiff<CR>
         nnoremap <leader>gb :Gblame<CR>
     " }}}
-    " Always show the airline.
-    set laststatus=2
+    " Airline {{{
+        " Always show the airline.
+        set laststatus=2
+    " }}}
     " NerdTree {{{
         "Toogle key binding.
         nnoremap <leader>n :NERDTreeToggle<CR>
-    " }}}
-    " Python-mode {{{
-        " Do not display colorcolumn.
-        let g:pymode_options_colorcolumn = 0
-        " Search rope project directory in parent directories.
-        let g:pymode_rope_lookup_project = 1
-        " Bind shortcuts.
-        nnoremap <C-c>pep :PymodeLintAuto<CR>
     " }}}
     " Undotree {{{
         " Key shortcuts for undotree
@@ -121,10 +123,21 @@
     " }}}
     " Emmet {{{
         " Enable Emmet only in HTML and CSS
-        let g:user_emmet_install_global = 0
+        let g:user_emmet_install_global = 1
     " }}}
     " JSX {{{
         let g:jsx_ext_required = 0
+    " }}}
+    " Syntastic {{{
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+
+        let g:syntastic_always_populate_loc_list = 1
+        " Auto close, but not auto open.
+        let g:syntastic_auto_loc_list = 2
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_check_on_wq = 0
     " }}}
 " }}}
 
@@ -146,7 +159,7 @@
         " Use more colors in terminal
         set t_Co=256
         " Use gruvbox because codeschool looks not good in term
-        colorscheme gruvbox
+        colorscheme Monokai
     endif
 " }}}
 
@@ -154,8 +167,7 @@
     augroup vimrc_autocmds
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
-        autocmd FileType html,javascript,htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-        autocmd FileType html,css,htmldjango EmmetInstall
+        autocmd FileType html,javascript,jinja,php setlocal shiftwidth=2 tabstop=2 softtabstop=2
         " Highlight characters past column 80 in Python.
         autocmd FileType python highlight Excess ctermbg=Red guibg=Red
         autocmd FileType python match Excess /\%80v.*/
