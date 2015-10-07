@@ -41,7 +41,6 @@ Supported Plugins
 * Ctrl-P: a convenient tool for fuzzy file searching
 * Airline: a powerful and beautiful status line enhancement implemented fully in vim script
 * Fugitive: a git interface
-* Python-mode: an all-in-one full stack python environment enquipped with syntax highlighting, code linting, autocompletion, python doc, refactor and so many useful plugins
 * Surround: an easy-to-use quoting and parenthesizing plugin
 * Colorschemes: one colorscheme pack that rule them all!
 * NERDTree: a powerful file manager enhanced with NERDTree-git-plugin so that it works with git
