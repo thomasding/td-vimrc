@@ -1,5 +1,14 @@
 " vim:foldmethod=marker
 
+" Language {{{
+    " Use English and UTF-8 regardless of the system language.
+    let $LANG = 'en'
+    set langmenu=en
+    set encoding=utf-8
+    " Try UTF-8 first and then Chinese gbk.
+    set fileencodings=utf-8,gbk
+" }}}
+
 " Edit {{{
     " Show line number on the left.
     set number
@@ -154,7 +163,7 @@
         " Hide menubar.
         set guioptions-=m
         " Use codeschool.
-        colorscheme codeschool
+        colorscheme Monokai
     else
         " Use more colors in terminal
         set t_Co=256
