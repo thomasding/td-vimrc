@@ -152,8 +152,13 @@
 
 " GUI and console {{{
     if has('gui_running')
-        " Set font family to Monospace and size to 10.
-        set guifont=Monospace\ 10
+        if has('win32')
+            " Set font family to Consolas and size to 10.
+            set guifont=Consolas:h10
+        else
+            " Set font family to Monospace and size to 10.
+            set guifont=Monospace\ 10
+        endif 
         " Hide right scroll bar.
         set guioptions-=r
         " Hide left scroll bar.
