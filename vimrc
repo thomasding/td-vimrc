@@ -45,6 +45,10 @@
     set hlsearch
     " Make backspace full functional.
     set backspace=2
+    " Show a vertical line in Column 80.
+    set colorcolumn=80
+    " Do not wrap lines.
+    set nowrap
 " }}}
 
 " Vundle {{{
@@ -184,11 +188,6 @@
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
         autocmd FileType html,javascript,jinja,php setlocal shiftwidth=2 tabstop=2 softtabstop=2
-        " Highlight characters past column 80 in Python.
-        autocmd FileType python highlight Excess ctermbg=Red guibg=Red
-        autocmd FileType python match Excess /\%80v.*/
-        " Do not wrap lines in Python.
-        autocmd FileType python setlocal nowrap
         " Enable Emmet in HTML and CSS
         " Close Preview window after autocompletion
         autocmd CompleteDone * pclose
