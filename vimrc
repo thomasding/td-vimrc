@@ -188,7 +188,7 @@
         autocmd FileType python highlight Excess ctermbg=Red guibg=Red
         autocmd FileType python match Excess /\%80v.*/
         " Do not wrap lines in Python.
-        autocmd FileType python set nowrap
+        autocmd FileType python setlocal nowrap
         " Enable Emmet in HTML and CSS
         " Close Preview window after autocompletion
         autocmd CompleteDone * pclose
