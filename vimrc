@@ -164,7 +164,7 @@
         else
             " Set font family to Monospace and size to 10.
             set guifont=Monospace\ 10
-        endif 
+        endif
         " Hide right scroll bar.
         set guioptions-=r
         " Hide left scroll bar.
