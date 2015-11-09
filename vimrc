@@ -189,8 +189,6 @@
         " Set the indentation in HTML and javascript to 2 spaces.
         autocmd FileType html,javascript,jinja,php setlocal shiftwidth=2 tabstop=2 softtabstop=2
         " Enable Emmet in HTML and CSS
-        " Close Preview window after autocompletion
-        autocmd CompleteDone * pclose
         " Use GFM instead of standard markdown
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
     augroup END
