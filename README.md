@@ -13,7 +13,7 @@ Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins now.
 In OS X and Linux where `curl` is installed, td-vimrc can be installed with one
 command in the terminal:
 
-1. **Clone the vimrc into your home directory**:
+1. **Clone the vimrc into your home directory:**
 
     ```shell
     $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
@@ -24,14 +24,14 @@ command in the terminal:
     create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
     and `~/.vimrc.plugin.local`, which are well self-documented.
 
-2. **Enable extra features (optional)**:
+2. **Enable extra features (optional):**
 
     Edit `~/.vimrc.before.local`and enable the features that you need. The extra
     features are mostly related to specific languages or terminal utilities. Skip
     this step if the basic feature is enough (see [Features] for what td-vimrc
     utilizes for a basic feature and extra features).
 
-3. **Install all the plugins**:
+3. **Install all the plugins:**
 
     Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
     the plugins that td-vimrc requires for all the enabled features.
@@ -42,13 +42,13 @@ command in the terminal:
 In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be
 installed manually by following these steps:
 
-1. **Clone td-vimrc into your home directory**:
+1. **Clone td-vimrc into your home directory:**
 
     ```shell
     $ git clone https://github.com/thomasding/td-vimrc.git ~/.td-vimrc
     ```
 
-2. **Link the vimrc to ~/.vimrc**:
+2. **Link the vimrc to ~/.vimrc:**
 
     1. In OS X or Linux, run the command in terminal:
 
@@ -62,18 +62,18 @@ installed manually by following these steps:
         C:\Users\{Your Home}> mklink .vimrc .td-vimrc\vimrc
         ```
 
-3. **Clone Vundle to your vim plugin directory**:
+3. **Clone Vundle to your vim plugin directory:**
 
     ```shell
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     ```
 
-4. **Create local customizable vimrc files**:
+4. **Create local customizable vimrc files:**
 
     Create `~/.vimrc.before.local`, `~/.vimrc.after.local` and `~/.vimrc.plugin.local`
     in your home directory. See [Customization] for the descriptions of these files.
 
-5. **Enable extra features (optional)**:
+5. **Enable extra features (optional):**
 
     Edit `~/.vimrc.before.local` and set `g:tdvimrc_features` to enable extra
     features you need.
@@ -85,7 +85,7 @@ installed manually by following these steps:
     let g:tdvimrc_features = ["golang", "html", "tmux"]
     ```
 
-6. **Install all the plugins**:
+6. **Install all the plugins:**
 
     Run `:PluginInstall` in VIM or `$ vim +PluginInstall +qa` in terminal to
     install all the plugins td-vimrc requires for all enabled features.
@@ -94,11 +94,31 @@ installed manually by following these steps:
 
 ### Basic Feature ###
 
-### Extra Feature: "golang" ###
+1. **Enhance editing experience:**
 
-### Extra Feature: "html" ###
+    * Map `jj` to `<Esc>` in Insert mode.
+    * Show relative line number.
 
-### Extra Feature: "tmux" ###
+        Relative line number makes it faster to jump to a farther line. Jump to the
+        tenth line above the cursor, for example, with `10k` rather than `kkkkkkkkkk`.
+
+    * Set default tab width and indentation to 4 spaces and use spaces in place
+of tabs.
+    * Enable incremental search and smart case. Highlight matched texts.
+
+        In smart case matching, `what` match `what`, `What` and `WHAT`, but 'What'
+        matches 'What' only.
+
+        To disable the matching highlight after searching, type `:nohls` in Normal
+        mode.
+
+### Extra Feature "golang" ###
+
+### Extra Feature "html" ###
+
+### Extra Feature "tmux" ###
+
+## Guide ##
 
 ## Customization ##
 
