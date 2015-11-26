@@ -18,7 +18,7 @@ command in the terminal:
 
 1. **Clone the vimrc into your home directory**:
 
-    ```
+    ```shell
     $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
     ```
 
@@ -48,43 +48,50 @@ installed manually by following these steps:
 
 1. **Clone td-vimrc into your home directory**:
 
-    ```
+    ```shell
     $ git clone https://github.com/thomasding/td-vimrc.git ~/.td-vimrc
     ```
 
 2. **Link the vimrc to ~/.vimrc**:
 
-    a. In OS X or Linux, run the command in terminal:
+    1. In OS X or Linux, run the command in terminal:
 
-        ```
+        ```shell
         $ ln -s ~/.td-vimrc/vimrc ~/.vimrc
         ```
 
-    b. In Windows, start CMD **as administrator**, change to home directory, and run:
+    2. In Windows, start CMD **as administrator**, change to home directory, and run:
 
-        ```
+        ```shell
         C:\Users\{Your Home}> mklink .vimrc .td-vimrc\vimrc
         ```
 
 3. **Clone Vundle to your vim plugin directory**:
 
-    ```
+    ```shell
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     ```
 
-4. **Create local customizable vimrcs**:
+4. **Create local customizable vimrc files**:
 
-5. Enable extra features (optional):
+    Create `~/.vimrc.before.local`, `~/.vimrc.after.local` and `~/.vimrc.plugin.local`
+    in your home directory. See [Customization] for the descriptions of these files.
 
-After these repos are successfully cloned into the local disk, edit `~/.vimrc.before.local`
-and enable the features that you need, which are mostly related to specific languages
-or terminal utilities. Skip this step if the basic feature is enough (see [Features]
-for what the vimrc utilizes for a basic feature).
+5. **Enable extra features (optional)**:
 
-6. Install all the plugins:
+    Set global variable `g:tdvimrc_features` to enable extra features in need.
 
-Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
-the plugins that the vimrc requires.
+    ```VimL
+    " The following statement enables all the extra features td-vimrc supports.
+    " Remove the items to disable unwanted features. Set it to [] to disable
+    " all extra features. See [Features] for the descriptions of each extra feature.
+    let g:tdvimrc_features = ["golang", "html", "tmux"]
+    ```
+
+6. **Install all the plugins**:
+
+    Run `:PluginInstall` in VIM or `$ vim +PluginInstall +qa` in terminal to
+    install all the plugins td-vimrc requires for all enabled features.
 
 Supported Plugins
 =================
