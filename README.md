@@ -79,7 +79,7 @@ In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be i
     " The following statement enables all the extra features td-vimrc supports.
     " Remove unwanted features from the list. Set it to [] to disable all extra
     " features. See [Features] for the descriptions of each extra feature.
-    let g:tdvimrc_features = ["golang", "html", "tmux"]
+    let g:tdvimrc_features = ["golang", "web", "tmux"]
     ```
 
 6. **Install all the plugins:**
@@ -238,7 +238,7 @@ of tabs.
 
 * Full golang development environment with [vim-go](https://github.com/fatih/vim-go).
 
-### Extra Feature "html" ###
+### Extra Feature "web" ###
 
 * Expand HTML and CSS abbreviations with [Emmet-vim](https://github.com/mattn/emmet-vim).
 
@@ -291,7 +291,7 @@ To customize your vim, edit `~/.vimrc.before.local`, `~/.vimrc.after.local` and 
     " The following statement enables all the extra features td-vimrc supports.
     " Remove unwanted features from the list. Set it to [] to disable all extra
     " features. See [Features] for the descriptions of each extra feature.
-    let g:tdvimrc_features = ["golang", "html", "tmux"]
+    let g:tdvimrc_features = ["golang", "web", "tmux"]
     ```
 
     Every time the features are changed, run `:PluginClean` and `:PluginInstall` in vim to apply the changes.
