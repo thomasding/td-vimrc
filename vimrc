@@ -100,6 +100,8 @@ endif
     Plugin 'jtratner/vim-flavored-markdown'
     " Tagbar
     Plugin 'majutsushi/tagbar'
+    " Tabular
+    Plugin 'godlygeek/tabular'
 
     if has('lua')
         " Excellent autocompletion.
@@ -120,7 +122,6 @@ endif
         Plugin 'edkolev/tmuxline.vim'
         " Tmux navigation
         Plugin 'christoomey/vim-tmux-navigator'
-        " HTML5 highlighting
     endif
 
     if index(g:tdvimrc_features, "golang") != -1
