@@ -16,24 +16,28 @@ The Automatic Way
 In OS X and Linux where `curl` is installed, td-vimrc can be installed with one
 command in the terminal:
 
-1. Clone the vimrc into your home directory:
+1. **Clone the vimrc into your home directory**:
+
     ```
     $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
     ```
-    It will clone this repo into ~/.td-vimrc, clone Vundle (the package manager that
+
+    It will clone td-vimrc into ~/.td-vimrc, clone Vundle (the package manager that
     this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
-    create three local customizable vimrc files `~/.vimrc.before.local`,
-    `~/.vimrc.after.local` and `~/.vimrc.plugin.local`.
+    create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
+    and `~/.vimrc.plugin.local`, which are well self-documented.
 
-2. Enable extra features (optional):
-    After these repos are successfully cloned into the local disk, edit `~/.vimrc.before.local`
-    and enable the features that you need, which are mostly related to specific languages
-    or terminal utilities. Skip this step if the basic feature is enough (see [Features]
-    for what the vimrc utilizes for a basic feature).
+2. **Enable extra features (optional)**:
 
-3. Install all the plugins:
+    Edit `~/.vimrc.before.local`and enable the features that you need. The extra
+    features are mostly related to specific languages or terminal utilities. Skip
+    this step if the basic feature is enough (see [Features] for what td-vimrc
+    utilizes for a basic feature and extra features).
+
+3. **Install all the plugins**:
+
     Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
-    the plugins that the vimrc requires.
+    the plugins that td-vimrc requires for all the enabled features.
 
 
 The Manual Way
@@ -42,27 +46,33 @@ The Manual Way
 In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be
 installed manually by following these steps:
 
-1. Clone this repository into your home directory:
+1. **Clone td-vimrc into your home directory**:
 
+    ```
     $ git clone https://github.com/thomasding/td-vimrc.git ~/.td-vimrc
+    ```
 
-2. Link the vimrc to ~/.vimrc:
+2. **Link the vimrc to ~/.vimrc**:
 
-    a. In OS X or Linux:
+    a. In OS X or Linux, run the command in terminal:
 
+        ```
         $ ln -s ~/.td-vimrc/vimrc ~/.vimrc
+        ```
 
-    b. In Windows:
+    b. In Windows, start CMD **as administrator**, change to home directory, and run:
 
-        Start CMD as administrator, change to home directory, and:
-
+        ```
         C:\Users\{Your Home}> mklink .vimrc .td-vimrc\vimrc
+        ```
 
-3. Install Vundle:
+3. **Clone Vundle to your vim plugin directory**:
 
+    ```
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    ```
 
-4. Create local
+4. **Create local customizable vimrcs**:
 
 5. Enable extra features (optional):
 
