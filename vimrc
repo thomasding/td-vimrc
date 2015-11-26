@@ -1,5 +1,13 @@
 " vim:foldmethod=marker
 
+if filereadable(glob("~/.vimrc.before.local"))
+    source ~/.vimrc.before.local
+endif
+
+if !exists("g:tdvimrc_features")
+    let g:tdvimrc_features = ["golang", "web", "tmux"]
+endif
+
 " Language {{{
     " Use English and UTF-8 regardless of the system language.
     let $LANG = 'en'
@@ -50,6 +58,13 @@
     set colorcolumn=80
     " Do not wrap lines.
     set nowrap
+
+    " If tmux feature is not enabled, we support window switching shortcuts
+    " manually.
+    if index(g:tdvimrc_features, "tmux") == -1
+        nnoremap <C-h> :wincmd h<CR>
+        nnoremap <C-l> :wincmd l<CR>
+    endif
 " }}}
 
 " Vundle {{{
@@ -79,26 +94,36 @@
     Plugin 'airblade/vim-gitgutter'
     " Helpful undotree
     Plugin 'mbbill/undotree'
-    " Emmet
-    Plugin 'mattn/emmet-vim'
     " Github Flavored Markdown
     Plugin 'jtratner/vim-flavored-markdown'
-    " Enahanced javascript syntax
-    Plugin 'pangloss/vim-javascript'
-    " Tmux status line
-    Plugin 'edkolev/tmuxline.vim'
-    " Tmux navigation
-    Plugin 'christoomey/vim-tmux-navigator'
-    " HTML5 highlighting
-    Plugin 'othree/html5.vim'
-    " Go Plugin
-    Plugin 'fatih/vim-go'
     " Tagbar
     Plugin 'majutsushi/tagbar'
 
     if has('lua')
         " Excellent autocompletion.
         Plugin 'Shougo/neocomplete.vim'
+    endif
+
+    if index(g:tdvimrc_features, "web") != -1
+        " Emmet
+        Plugin 'mattn/emmet-vim'
+        " Enahanced javascript syntax
+        Plugin 'pangloss/vim-javascript'
+        " HTML5 syntax
+        Plugin 'othree/html5.vim'
+    endif
+
+    if index(g:tdvimrc_features, "tmux") != -1
+        " Tmux status line
+        Plugin 'edkolev/tmuxline.vim'
+        " Tmux navigation
+        Plugin 'christoomey/vim-tmux-navigator'
+        " HTML5 highlighting
+    endif
+
+    if index(g:tdvimrc_features, "golang") != -1
+        " Go Plugin
+        Plugin 'fatih/vim-go'
     endif
 
     " Load customized plugins
@@ -144,8 +169,10 @@
         endif
     " }}}
     " Emmet {{{
-        " Enable Emmet only in HTML and CSS
+    if index(g:tdvimrc_features, "web") != -1
+        " Enable Emmet
         let g:user_emmet_install_global = 1
+    endif
     " }}}
     " Tagbar {{{
         nnoremap <leader>t :TagbarToggle<CR>
@@ -178,8 +205,8 @@
 
         " Recommended key-mappings.
         " <CR>: close popup and save indent.
-        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-        function! s:my_cr_function()
+        inoremap <silent> <CR> <C-r>=<SID>tdvimrc_cr_function()<CR>
+        function! <SID>tdvimrc_cr_function()
             return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
             " For no inserting <CR> key.
             "return pumvisible() ? "\<C-y>" : "\<CR>"
@@ -253,6 +280,13 @@
 " }}}
 
 " Autocmds {{{
+    function! <SID>tdvimrc_strip_spaces()
+        let l = line(".")
+        let c = col(".")
+        %s/\s\+$//e
+        call cursor(l, c)
+    endfunction
+
     augroup vimrc_autocmds
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
@@ -261,12 +295,12 @@
         " Use GFM instead of standard markdown
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
         " Remove unwanted trailing spaces on save.
-        autocmd BufWritePre * :%s/\s\+$//e
+        autocmd BufWritePre * :call <SID>tdvimrc_strip_spaces()
     augroup END
 " }}}
 
-" Local .vimrc {{{
-    if filereadable(glob("~/.vimrc.local"))
-        source ~/.vimrc.local
+" Local customized vimrc {{{
+    if filereadable(glob("~/.vimrc.after.local"))
+        source ~/.vimrc.after.local
     endif
 " }}}
