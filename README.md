@@ -10,8 +10,7 @@ Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins now.
 
 ### The Automatic Way ###
 
-In OS X and Linux where `curl` is installed, td-vimrc can be installed with one
-command in the terminal:
+In OS X and Linux where `curl` is installed, td-vimrc can be installed with one command in the terminal:
 
 1. **Clone the vimrc into your home directory:**
 
@@ -39,8 +38,7 @@ command in the terminal:
 
 ### The Manual Way ###
 
-In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be
-installed manually by following these steps:
+In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be installed manually by following these steps:
 
 1. **Clone td-vimrc into your home directory:**
 
@@ -75,8 +73,7 @@ installed manually by following these steps:
 
 5. **Enable extra features (optional):**
 
-    Edit `~/.vimrc.before.local` and set `g:tdvimrc_features` to enable extra
-    features you need.
+    Edit `~/.vimrc.before.local` and set `g:tdvimrc_features` to enable extra features you need.
 
     ```VimL
     " The following statement enables all the extra features td-vimrc supports.
@@ -113,14 +110,13 @@ of tabs.
         > To disable the matching highlight after searching, type `:noh` in Normal
         > mode.
 
-    * Use `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>` and `<Ctrl-k>` to switch between
-window splits more quickly.
+    * Use `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>` and `<Ctrl-k>` to switch between window splits more quickly.
 
     * Trim trailing whitespaces automatically on save.
 
-    * Automatically complete code with Neocomplete.
+    * Automatically complete code with [neocomplete](https://github.com/Shougo/neocomplete.vim).
 
-    * Undo to any previous state with undotree.
+    * Undo to any previous state with [undotree](https://github.com/Shougo/neocomplete.vim).
 
         > Undo history used to be a linear structure. You cannot return to the
         > original state after undoing to a previous state and then doing more
@@ -128,38 +124,35 @@ window splits more quickly.
         > undoing and editing creates a new branch in the history tree, and you
         > are able to reach any state in the tree.
 
-    * Add, substitute and remove brackets with vim-surround.
+    * Add, substitute and remove brackets with [vim-surround](https://github.com/tpope/vim-surround).
 
-    * Enable Github Flavored Markdown syntax with vim-flavored-markdown.
+    * Enable Github Flavored Markdown syntax with [vim-flavored-markdown](https://github.com/jtratner/vim-flavored-markdown).
 
-    * Demonstrates variable, function and class definitions in the current file
-with tagbar.
+    * Demonstrates variable, function and class definitions in the current file with [tagbar](https://github.com/majutsushi/tagbar).
 
 2. **Beautify the appearance of VIM:**
 
-    * Powerful and beautiful status line with vim-airline working along with
-many other plugins.
+    * Powerful and beautiful status line with [vim-airline](https://github.com/bling/vim-airline) working along with many other plugins.
 
-    * A full pack of hundreds of colorschemes with vim-colorschemes.
+    * A full pack of hundreds of colorschemes with [vim-colorschemes](https://github.com/flazz/vim-colorschemes).
 
     * Hide menubar, toolbar and scrollbars by default.
 
-    * Use good-looking monospace fonts in accord with the operating system.
+    * Use good-looking monospace fonts according to the operating system.
 
 3. **Improve finding file experience:**
 
-    * Use Ctrl-P to quickly find files with fuzzy search.
+    * Use [ctrlp](https://github.com/kien/ctrlp.vim) to quickly find files with fuzzy search.
 
-    * Show your project directory in tree structure with NERDTree.
+    * Show your project directory in tree structure with [NERDTree](https://github.com/scrooloose/nerdtree).
 
 4. **Integrate with git:**
 
-    * Seamlessly manage your code in your git repo with fugitive.
+    * Seamlessly manage your code in your git repo with [fugitive](https://github.com/tpope/vim-fugitive).
 
-    * Indicates modification besides the buffer with plus, minus and tilde signs
-with vim-gitgutter.
+    * Indicates modification besides the buffer with plus, minus and tilde signs with [vim-gitgutter](https://github.com/airblade/vim-gitgutter).
 
-    * Show git status in NERDTree by nerdtree-git-plugin.
+    * Show git status in NERDTree by [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
 
 ### Extra Feature "golang" ###
 
@@ -169,13 +162,13 @@ with vim-gitgutter.
 
 * Expand HTML and CSS abbreviations with [Emmet-vim](https://github.com/mattn/emmet-vim).
 
-* Enhanced javascript syntax highlighting.
+* Enhanced [javascript syntax highlighting](https://github.com/pangloss/vim-javascript).
 
-* HTML5 syntax highlighting support.
+* [HTML5 syntax highlighting](https://github.com/othree/html5.vim) support.
 
 ### Extra Feature "tmux" ###
 
-* Unite tmux with vim-airline by [tmuxline.vim]().
+* Unite tmux with vim-airline by [tmuxline.vim](https://github.com/edkolev/tmuxline.vim).
 
 * Switching tmux panes and vim window splits seamlessly with `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>`
 and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
@@ -194,6 +187,9 @@ and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-n
     ```
 
 ## Guide ##
+
+The guide provides a brief introdution of some plugins td-vimrc supports.
+To read more documentation, please checkout the github repo of the plugin you are interested in.
 
 ## Customization ##
 
