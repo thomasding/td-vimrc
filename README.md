@@ -104,13 +104,54 @@ installed manually by following these steps:
 
     * Set default tab width and indentation to 4 spaces and use spaces in place
 of tabs.
+
     * Enable incremental search and smart case. Highlight matched texts.
 
-        > In smart case matching, `what` match `what`, `What` and `WHAT`, but 'What'
-        > matches 'What' only.
+        > In smart case matching, `what` match `what`, `What` and `WHAT`, but `What`
+        > matches `What` only.
 
-        > To disable the matching highlight after searching, type `:nohls` in Normal
+        > To disable the matching highlight after searching, type `:noh` in Normal
         > mode.
+
+    * Use `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>` and `<Ctrl-k>` to switch between
+window splits more quickly.
+    * Automatically complete code with Neocomplete.
+
+    * Undo to any previous state with undotree.
+
+        > Undo history used to be a linear structure. You cannot return to the
+        > original state after undoing to a previous state and then doing more
+        > editing. Using undotree, the undo history forms a tree so that you
+        > undoing and editing creates a new branch in the history tree, and you
+        > are able to reach any state in the tree.
+
+    * Add, substitute and remove brackets with vim-surround.
+
+    * Enable Github Flavored Markdown syntax with vim-flavored-markdown.
+
+    * Demonstrates definitions in the current file with tagbar.
+
+2. **Beautify the appearance of VIM:**
+
+    * Powerful and beautiful status line with vim-airline working along with
+many other plugins.
+
+    * A full pack of hundreds of colorschemes with vim-colorschemes.
+
+3. **Improve finding file experience:**
+
+    * Use Ctrl-P to quickly find files with fuzzy search.
+
+    * Show your project directory in tree structure with NERDTree.
+
+4. **Integrate with git:**
+
+    * Seaminglessly manage your code in your git repo with fugitive.
+
+    * Indicates modification besides the buffer with plus, minus and tilde signs
+with vim-gitgutter.
+
+    * Show git status in NERDTree by nerdtree-git-plugin.
 
 ### Extra Feature "golang" ###
 
