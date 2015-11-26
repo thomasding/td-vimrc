@@ -99,18 +99,18 @@ installed manually by following these steps:
     * Map `jj` to `<Esc>` in Insert mode.
     * Show relative line number.
 
-> Relative line number makes it faster to jump to a farther line. Jump to the
-> tenth line above the cursor, for example, with `10k` rather than `kkkkkkkkkk`.
+        > Relative line number makes it faster to jump to a farther line. Jump to the
+        > tenth line above the cursor, for example, with `10k` rather than `kkkkkkkkkk`.
 
     * Set default tab width and indentation to 4 spaces and use spaces in place
 of tabs.
     * Enable incremental search and smart case. Highlight matched texts.
 
-> In smart case matching, `what` match `what`, `What` and `WHAT`, but 'What'
-> matches 'What' only.
+        > In smart case matching, `what` match `what`, `What` and `WHAT`, but 'What'
+        > matches 'What' only.
 
-> To disable the matching highlight after searching, type `:nohls` in Normal
-> mode.
+        > To disable the matching highlight after searching, type `:nohls` in Normal
+        > mode.
 
 ### Extra Feature "golang" ###
 
