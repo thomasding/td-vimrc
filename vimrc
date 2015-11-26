@@ -5,7 +5,7 @@ if filereadable(glob("~/.vimrc.before.local"))
 endif
 
 if !exists("g:tdvimrc_features")
-    let g:tdvimrc_features = ["golang", "web", "tmux"]
+    let g:tdvimrc_features = []
 endif
 
 " Language {{{
