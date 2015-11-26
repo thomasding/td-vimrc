@@ -64,6 +64,8 @@ endif
     if index(g:tdvimrc_features, "tmux") == -1
         nnoremap <C-h> :wincmd h<CR>
         nnoremap <C-l> :wincmd l<CR>
+        nnoremap <C-j> :wincmd j<CR>
+        nnoremap <C-k> :wincmd k<CR>
     endif
 " }}}
 
@@ -214,8 +216,8 @@ endif
         " <TAB>: completion.
         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
         " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+        "noremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+        "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
         " Close popup by <Space>.
         " inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
@@ -269,13 +271,14 @@ endif
         set guioptions-=T
         " Hide menubar.
         set guioptions-=m
-        " Use codeschool.
-        colorscheme Codeschool
+        " Use codeschool. It will cause errors before the colorscheme plugin
+        " is installed, so ignore the errors by silent!.
+        silent! colorscheme Codeschool
     else
         " Use more colors in terminal
         set t_Co=256
-        " Use gruvbox because codeschool looks not good in term
-        colorscheme Monokai
+        " Use gruvbox because codeschool looks ugly in terminal.
+        silent! colorscheme gruvbox
     endif
 " }}}
 
