@@ -30,7 +30,7 @@ if [ ! -f ~/.vimrc.before.local ]; then
 " :PluginInstall in VIM to remove and add the plugins in the features you enabled.
 "
 " All the extra features that tdvimrc supports:
-" let g:tdvimrc_features = ["golang", "tmux", "html"]
+" let g:tdvimrc_features = ["golang", "tmux", "web"]
 "
 let g:tdvimrc_features = []
 EOF_BEFORE_LOCAL
