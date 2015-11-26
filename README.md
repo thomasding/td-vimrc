@@ -1,11 +1,11 @@
-Thomas' Vim Configuration
+Thomas Ding' Vim Configuration
 =========================
 
-This configuration is specially enquipped for Python and HTML development for now.
+![snapshot](snapshots/nerdtree-ctrlp.png)
 
-See [Installation] for how to install this configuration.
-
-See [Supported Plugins] for the list of plugins it brings with itself.
+Thomas Ding's Vimrc is a powerful and customizable vimrc. It brings with itself
+many brilliant plugins, such as NERDTree, fugitive and ctrl-P. See [Plugins] for
+a full list of the plugins it installs for you.
 
 Installation
 ==============
