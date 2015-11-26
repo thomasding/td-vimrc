@@ -276,7 +276,7 @@ and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-n
 
 ## Customization ##
 
-> **DO NOT** edit .vimrc. Your changes will be lost after updating your vimrc configuration.
+> **DO NOT edit .vimrc.** Your changes will be lost after updating your vimrc configuration.
 
 To customize your vim, edit `~/.vimrc.before.local`, `~/.vimrc.after.local` and `~/.vimrc.plugin.local`, respectively.
 
@@ -308,6 +308,16 @@ To customize your vim, edit `~/.vimrc.before.local`, `~/.vimrc.after.local` and 
 3. `~/.vimrc.after.local`: loaded at the very end of `~/.vimrc`.
 
     Override tdvimrc's default configuration and add your own commands in this file.
+
+## Update ##
+
+1. Open terminal and change to directory `~/.td-vimrc`. Run the command to pull the latest td-vimrc:
+
+    ```shell
+    $ git pull
+    ```
+
+2. Run `:PluginUpdate` in vim to update the plugins.
 
 ## Snapshots ##
 
