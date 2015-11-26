@@ -1,5 +1,7 @@
 " vim:foldmethod=marker
 
+set nocompatible
+
 if filereadable(glob("~/.vimrc.before.local"))
     source ~/.vimrc.before.local
 endif
@@ -70,7 +72,6 @@ endif
 " }}}
 
 " Vundle {{{
-    set nocompatible
     filetype off
 
     set rtp+=~/.vim/bundle/Vundle.vim
