@@ -151,7 +151,7 @@
         nnoremap <leader>t :TagbarToggle<CR>
     " }}}
     " Neocomplete {{{
-    if has('lua') 
+    if has('lua')
         let g:acp_enableAtStartup = 0
         let g:neocomplete#enable_at_startup = 1
         " Use smartcase.
@@ -219,7 +219,7 @@
         " For perlomni.vim setting.
         " https://github.com/c9s/perlomni.vim
         let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    endif 
+    endif
     " }}}
 " }}}
 
@@ -251,7 +251,7 @@
         colorscheme Monokai
     endif
 " }}}
-"
+
 " Autocmds {{{
     augroup vimrc_autocmds
         autocmd!
@@ -260,6 +260,8 @@
         " Enable Emmet in HTML and CSS
         " Use GFM instead of standard markdown
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+        " Remove unwanted trailing spaces on save.
+        autocmd BufWritePre * :%s/\s\+$//e
     augroup END
 " }}}
 
