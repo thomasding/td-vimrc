@@ -12,6 +12,7 @@
 " Edit {{{
     " Show line number on the left.
     set number
+    set relativenumber
     " Always show the line number and column number in the status bar.
     set ruler
     " Use syntax highlighting.
@@ -80,26 +81,30 @@
     Plugin 'mbbill/undotree'
     " Emmet
     Plugin 'mattn/emmet-vim'
-    " Jinja2 support
-    Plugin 'mitsuhiko/vim-jinja'
     " Github Flavored Markdown
     Plugin 'jtratner/vim-flavored-markdown'
     " Enahanced javascript syntax
     Plugin 'pangloss/vim-javascript'
-    " JSX language
-    Plugin 'mxw/vim-jsx'
     " Tmux status line
     Plugin 'edkolev/tmuxline.vim'
     " Tmux navigation
     Plugin 'christoomey/vim-tmux-navigator'
-    " PHP better indent with html
-    Plugin 'captbaritone/better-indent-support-for-php-with-html'
-    " PHP highlighting
-    Plugin 'StanAngeloff/php.vim'
     " HTML5 highlighting
     Plugin 'othree/html5.vim'
-    " All-in-one syntax checker
-    Plugin 'scrooloose/syntastic'
+    " Go Plugin
+    Plugin 'fatih/vim-go'
+    " Tagbar
+    Plugin 'majutsushi/tagbar'
+
+    if has('lua')
+        " Excellent autocompletion.
+        Plugin 'Shougo/neocomplete.vim'
+    endif
+
+    " Load customized plugins
+    if filereadable(glob("~/.vimrc.plugin.local"))
+        source ~/.vimrc.plugin.local
+    endif
 
     call vundle#end()
     filetype plugin indent on
@@ -121,10 +126,12 @@
     " Airline {{{
         " Always show the airline.
         set laststatus=2
+        let g:airline#extensions#tabline#enabled = 1
     " }}}
     " NerdTree {{{
         "Toogle key binding.
-        nnoremap <leader>n :NERDTreeToggle<CR>
+        nnoremap <leader>n :NERDTreeFocus<CR>
+        nnoremap <leader>N :NERDTreeToggle<CR>
     " }}}
     " Undotree {{{
         " Key shortcuts for undotree
@@ -140,19 +147,79 @@
         " Enable Emmet only in HTML and CSS
         let g:user_emmet_install_global = 1
     " }}}
-    " JSX {{{
-        let g:jsx_ext_required = 0
+    " Tagbar {{{
+        nnoremap <leader>t :TagbarToggle<CR>
     " }}}
-    " Syntastic {{{
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
+    " Neocomplete {{{
+    if has('lua') 
+        let g:acp_enableAtStartup = 0
+        let g:neocomplete#enable_at_startup = 1
+        " Use smartcase.
+        let g:neocomplete#enable_smart_case = 1
+        " Set minimum syntax keyword length.
+        let g:neocomplete#sources#syntax#min_keyword_length = 3
+        let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+        " Define dictionary.
+        let g:neocomplete#sources#dictionary#dictionaries = {
+                    \ 'default' : '',
+                    \ 'vimshell' : $HOME.'/.vimshell_hist',
+                    \ 'scheme' : $HOME.'/.gosh_completions'
+                    \ }
 
-        let g:syntastic_always_populate_loc_list = 1
-        " Auto close, but not auto open.
-        let g:syntastic_auto_loc_list = 2
-        let g:syntastic_check_on_open = 1
-        let g:syntastic_check_on_wq = 0
+        " Define keyword.
+        if !exists('g:neocomplete#keyword_patterns')
+            let g:neocomplete#keyword_patterns = {}
+        endif
+        let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+        " Plugin key-mappings.
+        inoremap <expr><C-g>     neocomplete#undo_completion()
+        inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+        " Recommended key-mappings.
+        " <CR>: close popup and save indent.
+        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+        function! s:my_cr_function()
+            return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+            " For no inserting <CR> key.
+            "return pumvisible() ? "\<C-y>" : "\<CR>"
+        endfunction
+        " <TAB>: completion.
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        " <C-h>, <BS>: close popup and delete backword char.
+        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+        " Close popup by <Space>.
+        " inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+        " AutoComplPop like behavior.
+        "let g:neocomplete#enable_auto_select = 1
+
+        " Shell like behavior(not recommended).
+        "set completeopt+=longest
+        "let g:neocomplete#enable_auto_select = 1
+        "let g:neocomplete#disable_auto_complete = 1
+        "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+        " Enable heavy omni completion.
+        if !exists('g:neocomplete#sources#omni#input_patterns')
+            let g:neocomplete#sources#omni#input_patterns = {}
+        endif
+        let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+        let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+        " For perlomni.vim setting.
+        " https://github.com/c9s/perlomni.vim
+        let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+    endif 
     " }}}
 " }}}
 
@@ -161,6 +228,8 @@
         if has('win32')
             " Set font family to Consolas and size to 10.
             set guifont=Consolas:h10
+        elseif has('mac')
+            set guifont=Menlo:h12
         else
             " Set font family to Monospace and size to 10.
             set guifont=Monospace\ 10
@@ -174,7 +243,7 @@
         " Hide menubar.
         set guioptions-=m
         " Use codeschool.
-        colorscheme Monokai
+        colorscheme Codeschool
     else
         " Use more colors in terminal
         set t_Co=256
@@ -182,12 +251,12 @@
         colorscheme Monokai
     endif
 " }}}
-
+"
 " Autocmds {{{
     augroup vimrc_autocmds
         autocmd!
         " Set the indentation in HTML and javascript to 2 spaces.
-        autocmd FileType html,javascript,jinja,php setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd FileType html,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
         " Enable Emmet in HTML and CSS
         " Use GFM instead of standard markdown
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
