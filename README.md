@@ -115,6 +115,9 @@ of tabs.
 
     * Use `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>` and `<Ctrl-k>` to switch between
 window splits more quickly.
+
+    * Trim trailing whitespaces automatically on save.
+
     * Automatically complete code with Neocomplete.
 
     * Undo to any previous state with undotree.
@@ -129,7 +132,8 @@ window splits more quickly.
 
     * Enable Github Flavored Markdown syntax with vim-flavored-markdown.
 
-    * Demonstrates definitions in the current file with tagbar.
+    * Demonstrates variable, function and class definitions in the current file
+with tagbar.
 
 2. **Beautify the appearance of VIM:**
 
@@ -137,6 +141,10 @@ window splits more quickly.
 many other plugins.
 
     * A full pack of hundreds of colorschemes with vim-colorschemes.
+
+    * Hide menubar, toolbar and scrollbars by default.
+
+    * Use good-looking monospace fonts in accord with the operating system.
 
 3. **Improve finding file experience:**
 
