@@ -137,11 +137,11 @@ of tabs.
 
         > Undo history used to be a linear structure. You cannot return to the
         > original state after undoing to a previous state and then doing more
-        > editing. Using undotree, the undo history forms a tree so that you
+        > editing. Using undotree, the undo history forms a tree so that
         > undoing and editing creates a new branch in the history tree, and you
         > are able to reach any state in the tree.
 
-        > To toogle the undo tree window, press `,u` in Normal mode.
+        > To toggle the undo tree window, press `,u` in Normal mode.
         > Move the cursor to the preferred state in the tree and press `<Enter>` to revert to a previous state.
 
         > `>{Number}<` indicates the current state. `S` and `s` indicate the save point.
@@ -170,6 +170,10 @@ of tabs.
         > It does not refer to any real tags file.
 
         > To install exuberant ctags in OS X, run `brew install ctags` in terminal.
+
+    * Quickly align many lines with one command by [tabular](https://github.com/godlygeek/tabular).
+
+        > See [Aligning text with tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) for an introduction to tabular.
 
 2. **Beautify the appearance of VIM:**
 
