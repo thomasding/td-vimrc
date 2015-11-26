@@ -338,7 +338,7 @@ To customize your vim, edit `~/.vimrc.before.local`, `~/.vimrc.after.local` and 
     $ git pull
     ```
 
-2. Run `:PluginUpdate` in vim to update the plugins.
+2. Run `:PluginClean`, `:PluginUpdate` and `:PluginInstall` in vim to update the plugins.
 
 ## Snapshots ##
 
