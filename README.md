@@ -108,7 +108,7 @@ Git integration with **fugitive**:
 
 ![snapshot](snapshots/fugitive.png)
 
-Explore files with **tagbar** and complete with **neocomplete**:
+Explore definitions with **tagbar** and complete code with **neocomplete**:
 
 ![snapshot](snapshots/tagbar-neocomplete.png)
 
