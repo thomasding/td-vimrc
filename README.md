@@ -154,7 +154,7 @@ many other plugins.
 
 4. **Integrate with git:**
 
-    * Seaminglessly manage your code in your git repo with fugitive.
+    * Seamlessly manage your code in your git repo with fugitive.
 
     * Indicates modification besides the buffer with plus, minus and tilde signs
 with vim-gitgutter.
@@ -163,11 +163,35 @@ with vim-gitgutter.
 
 ### Extra Feature "golang" ###
 
-Full golang development environment with [vim-go](https://github.com/fatih/vim-go).
+* Full golang development environment with [vim-go](https://github.com/fatih/vim-go).
 
 ### Extra Feature "html" ###
 
+* Expand HTML and CSS abbreviations with [Emmet-vim](https://github.com/mattn/emmet-vim).
+
+* Enhanced javascript syntax highlighting.
+
+* HTML5 syntax highlighting support.
+
 ### Extra Feature "tmux" ###
+
+* Unite tmux with vim-airline by [tmuxline.vim]().
+
+* Switching tmux panes and vim window splits seamlessly with `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>`
+and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
+
+    > To support switching panes in tmux, append the following code in your ~/.tmux.conf:
+
+    ```
+    # Smart pane switching with awareness of vim splits
+    # See: https://github.com/christoomey/vim-tmux-navigator
+    is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?x?)(diff)?$"'
+    bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
+    bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
+    bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
+    bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
+    bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+    ```
 
 ## Guide ##
 
