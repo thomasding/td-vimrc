@@ -9,10 +9,7 @@ ln -s ~/.td-vimrc/vimrc ~/.vimrc
 # Step 3: clone vundle.
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Step 4: install base plugins.
-vim -e +PluginInstall +qa
-
-# Step 5: create .vimrc.before.local .vimrc.after.local and .vimrc.plugin.local
+# Step 4: create .vimrc.before.local .vimrc.after.local and .vimrc.plugin.local
 if [ ! -f ~/.vimrc.before.local ]; then
     cat << 'EOF_BEFORE_LOCAL' > ~/.vimrc.before.local
 " This file is loaded before the configuration in .vimrc is loaded.
