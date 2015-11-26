@@ -5,9 +5,7 @@ This configuration is specially enquipped for Python and HTML development for no
 
 See [Installation] for how to install this configuration.
 
-See [Supported Plugins] for what plugins it supports.
-
-See [Features] for what apart from plugins it supports for the sake of convenience.
+See [Supported Plugins] for the list of plugins it brings with itself.
 
 Installation
 ==============
@@ -25,7 +23,7 @@ Installation
     b. In Windows:
 
         Start CMD as administrator, change to home directory, and:
-    
+
         C:\Users\{Your Home}> mklink .vimrc .td-vimrc\vimrc
 
 3. Install Vundle:
@@ -37,7 +35,8 @@ Installation
     $ vim +PluginInstall +qa
 
 5. (Optional) Create and edit your customized vimrc (which will be loaded after .vimrc is done):
-    
+
+
     $ vim ~/.vimrc.local
 
 Now enjoy your vim journey!
