@@ -116,6 +116,10 @@ of tabs.
 
     * Automatically complete code with [neocomplete](https://github.com/Shougo/neocomplete.vim).
 
+        > Neocomplete shows a popup with candidates while you are typing.
+        > Press `<Tab>` to switch between the candidates in the popup.
+        > Just ignore the popup if the completion does not satisfy the expectation.
+
     * Undo to any previous state with [undotree](https://github.com/Shougo/neocomplete.vim).
 
         > Undo history used to be a linear structure. You cannot return to the
@@ -124,11 +128,33 @@ of tabs.
         > undoing and editing creates a new branch in the history tree, and you
         > are able to reach any state in the tree.
 
+        > To toogle the undo tree window, press `,u` in Normal mode.
+        > Move the cursor to the preferred state in the tree and press `<Enter>` to revert to a previous state.
+
+        > `>{Number}<` indicates the current state. `S` and `s` indicate the save point.
+        > The small window below the history demonstrates the difference between the two adjacent state.
+        > While switching between history states, the changing lines in the buffer is highlighted.
+
     * Add, substitute and remove brackets with [vim-surround](https://github.com/tpope/vim-surround).
+
+        > Press `cs"'` inside `"Hello World!" to change it to `'Hello World!'`.
+
+        > Press `cs'<q>` to change it to `<q>Hello World!</q>`.
+
+        > Press `ds"` to remove the delimiters and change it to `Hello World!`.
+
+        > Press `ysiw]` (`iw` is a text object indicating a word) on `Hello` of `Hello World!` to change it to `[Hello] World!`.
+
+        > See more usage from the documentation of [vim-surround](https://github.com/tpope/vim-surround).
 
     * Enable Github Flavored Markdown syntax with [vim-flavored-markdown](https://github.com/jtratner/vim-flavored-markdown).
 
     * Demonstrates variable, function and class definitions in the current file with [tagbar](https://github.com/majutsushi/tagbar).
+
+        > Press `,t` in Normal mode to toggle the tagbar.
+
+        > Tagbar uses [exuberant ctags](http://ctags.sourceforge.net) to process the editing file in memory.
+        > It does not refer to any real tags file.
 
 2. **Beautify the appearance of VIM:**
 
@@ -136,13 +162,34 @@ of tabs.
 
     * A full pack of hundreds of colorschemes with [vim-colorschemes](https://github.com/flazz/vim-colorschemes).
 
+        > By default, td-vimrc applies `codeschool` if vim is running in GUI and `gruvbox` if in terminal.
+
+        > Press `:colorscheme ` (there is a whitespace after `colorscheme`) and `<Tab>` to list all the colorschemes.
+
     * Hide menubar, toolbar and scrollbars by default.
 
     * Use good-looking monospace fonts according to the operating system.
 
+        > Td-vimrc chooses Monaco in OS X, Monospace in Linux and Consolas in Windows by default.
+
 3. **Improve finding file experience:**
 
     * Use [ctrlp](https://github.com/kien/ctrlp.vim) to quickly find files with fuzzy search.
+
+        > Press `<Ctrl-p>` in Normal mode to bring the ctrlp panel in appearance.
+
+        > The ctrlp panel supports these key bindings:
+
+        | Key    | Description                                        |
+        |--------|----------------------------------------------------|
+        | Ctrl-j | Move down the cursor to the next line              |
+        | Ctrl-k | Move up the cursor to the previous line            |
+        | Ctrl-f | Iterate forward between file, buffer and MRU list  |
+        | Ctrl-b | Iterate backward between file, buffer and MRU list |
+        | Enter  | Open the selected file(s)                          |
+        | Ctrl-x | Open the file in a new horizontal split            |
+        | Ctrl-v | Open the file in a new vertical split              |
+        | Ctrl-y | Create the file and its parent directories         |
 
     * Show your project directory in tree structure with [NERDTree](https://github.com/scrooloose/nerdtree).
 
@@ -185,11 +232,6 @@ and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-n
     bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
     bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
     ```
-
-## Guide ##
-
-The guide provides a brief introdution of some plugins td-vimrc supports.
-To read more documentation, please checkout the github repo of the plugin you are interested in.
 
 ## Customization ##
 
