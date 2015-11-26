@@ -116,6 +116,19 @@ of tabs.
 
     * Automatically complete code with [neocomplete](https://github.com/Shougo/neocomplete.vim).
 
+        > Neocomplete depends on Lua support of vim.
+        > Run `:echo has('lua')` in your vim to see if it supports Lua.
+        > `1` indicates your vim supports Lua and `0` indicates not.
+
+        > To install a macvim with lua support in OS X, run in terminal:
+
+        ```shell
+        $ brew install macvim --with-lua --with-override-system-vim
+        $ brew linkapps macvim
+        ```
+
+        > `--with-override-system-vim` instructs macvim to replace system default vim.
+
         > Neocomplete shows a popup with candidates while you are typing.
         > Press `<Tab>` to switch between the candidates in the popup.
         > Just ignore the popup if the completion does not satisfy the expectation.
@@ -155,6 +168,8 @@ of tabs.
 
         > Tagbar uses [exuberant ctags](http://ctags.sourceforge.net) to process the editing file in memory.
         > It does not refer to any real tags file.
+
+        > To install exuberant ctags in OS X, run `brew install ctags` in terminal.
 
 2. **Beautify the appearance of VIM:**
 
