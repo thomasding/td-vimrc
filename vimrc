@@ -163,7 +163,11 @@ endif
     " }}}
     " Undotree {{{
         " Key shortcuts for undotree
-        nnoremap <leader>u :UndotreeToggle<cr>
+        function! <SID>tdvimrc_undotree_focus()
+            UndotreeToggle
+            UndotreeFocus
+        endfunction
+        nnoremap <leader>u :call <SID>tdvimrc_undotree_focus()<CR>
         " Persistant undo
         if has('persistent_undo')
             silent call system('mkdir -p ~/.vim-undo')
