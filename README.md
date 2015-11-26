@@ -5,8 +5,7 @@ Thomas Ding's Vim Configuration
 
 **Handy and Customizable!**
 
-Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins all
-at the same time.
+Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins now.
 
 Installation
 ==============
@@ -17,28 +16,24 @@ The Automatic Way
 In OS X and Linux where `curl` is installed, td-vimrc can be installed with one
 command in the terminal:
 
-1. Clone the vimrc into local disk:
-
-```
-$ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
-```
-
-It will clone this repo into ~/.td-vimrc, clone Vundle (the package manager that
-this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
-create three local customizable vimrc files `~/.vimrc.before.local`,
-`~/.vimrc.after.local` and `~/.vimrc.plugin.local`.
+1. Clone the vimrc into your home directory:
+    ```
+    $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
+    ```
+    It will clone this repo into ~/.td-vimrc, clone Vundle (the package manager that
+    this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
+    create three local customizable vimrc files `~/.vimrc.before.local`,
+    `~/.vimrc.after.local` and `~/.vimrc.plugin.local`.
 
 2. Enable extra features (optional):
-
-After these repos are successfully cloned into the local disk, edit `~/.vimrc.before.local`
-and enable the features that you need, which are mostly related to specific languages
-or terminal utilities. Skip this step if the basic feature is enough (see [Features]
-for what the vimrc utilizes for a basic feature).
+    After these repos are successfully cloned into the local disk, edit `~/.vimrc.before.local`
+    and enable the features that you need, which are mostly related to specific languages
+    or terminal utilities. Skip this step if the basic feature is enough (see [Features]
+    for what the vimrc utilizes for a basic feature).
 
 3. Install all the plugins:
-
-Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
-the plugins that the vimrc requires.
+    Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
+    the plugins that the vimrc requires.
 
 
 The Manual Way
