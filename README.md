@@ -163,6 +163,8 @@ with vim-gitgutter.
 
 ### Extra Feature "golang" ###
 
+Full golang development environment with [vim-go](https://github.com/fatih/vim-go).
+
 ### Extra Feature "html" ###
 
 ### Extra Feature "tmux" ###
