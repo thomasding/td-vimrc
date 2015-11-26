@@ -178,24 +178,55 @@ of tabs.
 
         > Press `<Ctrl-p>` in Normal mode to bring the ctrlp panel in appearance.
 
-        > The ctrlp panel supports these key bindings:
+        > Here are some most frequent key bindings used in ctrlp panel:
 
-        | Key    | Description                                        |
-        |--------|----------------------------------------------------|
-        | Ctrl-j | Move down the cursor to the next line              |
-        | Ctrl-k | Move up the cursor to the previous line            |
-        | Ctrl-f | Iterate forward between file, buffer and MRU list  |
-        | Ctrl-b | Iterate backward between file, buffer and MRU list |
-        | Enter  | Open the selected file(s)                          |
-        | Ctrl-x | Open the file in a new horizontal split            |
-        | Ctrl-v | Open the file in a new vertical split              |
-        | Ctrl-y | Create the file and its parent directories         |
+        | Key      | Description                                          |
+        | -------- | ---------------------------------------------------- |
+        | Ctrl-j   | Move down the cursor to the next line                |
+        | Ctrl-k   | Move up the cursor to the previous line              |
+        | Ctrl-f   | Iterate forward between file, buffer and MRU list    |
+        | Ctrl-b   | Iterate backward between file, buffer and MRU list   |
+        | Enter    | Open the selected file(s)                            |
+        | Ctrl-x   | Open the file in a new horizontal split              |
+        | Ctrl-v   | Open the file in a new vertical split                |
+        | Ctrl-y   | Create the file and its parent directories           |
+        | F5       | Refresh the list                                     |
+
+        > See the full list of supported actions in [ctrlp](https://github.com/kien/ctrlp.vim).
 
     * Show your project directory in tree structure with [NERDTree](https://github.com/scrooloose/nerdtree).
+
+        > Press `,n` in Normal mode to jump to the NERDTree window, opening it if hidden.
+
+        > Press `,N` in Normal mode to toggle the NERDTree window.
+
+        > Here are some most frequent key bindings used in NEDTree window:
+
+        | Key   | Description                                             |
+        | ----- | ------------------------------------------------------- |
+        | ?     | Toggle help                                             |
+        | j     | Move down the cursor to the next line                   |
+        | k     | Move up the cursor to the previous line                 |
+        | o     | Open the selected file or toggle the selected directory |
+        | i     | Open in a new horizontal split                          |
+        | v     | Open in a new vertical split                            |
+        | r     | Refresh the list                                        |
 
 4. **Integrate with git:**
 
     * Seamlessly manage your code in your git repo with [fugitive](https://github.com/tpope/vim-fugitive).
+
+        > Td-vimrc comes with a few key bindings in Normal mode for frequent git action:
+
+        | Shortcut | Command  | Description                                                                                    |
+        | -------- | -------- | ---------------------------------------------------------------------------------------------  |
+        | ,gs      | :Gstatus | Show the status of the repo. Press `-` on a file to toggle between staged and unstaged state.  |
+        | ,gw      | :Gwrite  | Save the buffer and stage it in the repo                                                       |
+        | ,gc      | :Gcommit | Bring up a commit window. Press `:wq` in it to apply the commit or `:q!` to abandon the commit |
+        | ,gd      | :Gdiff   | Diff the file with the one in HEAD                                                             |
+        | ,gb      | :Gblame  | Blame the file                                                                                 |
+
+        > See [fugitive](https://github.com/tpope/vim-fugitive) for more documentation.
 
     * Indicates modification besides the buffer with plus, minus and tilde signs with [vim-gitgutter](https://github.com/airblade/vim-gitgutter).
 
@@ -217,6 +248,16 @@ of tabs.
 
 * Unite tmux with vim-airline by [tmuxline.vim](https://github.com/edkolev/tmuxline.vim).
 
+    > To support tmuxline on the startup of tmux, run `:TmuxlineSnapshot [file]` to create a snapshot
+    > which can be sourced by ~/.tmux.conf on startup.
+
+    > To source the created snapshot, add the following lines in your ~/.tmux.conf:
+
+    ```
+    # in ~/.tmux.conf
+    source-file [file]
+    ```
+
 * Switching tmux panes and vim window splits seamlessly with `<Ctrl-h>`, `<Ctrl-l>`, `<Ctrl-j>`
 and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
 
@@ -234,6 +275,39 @@ and `<Ctrl-k>` by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-n
     ```
 
 ## Customization ##
+
+> **DO NOT** edit .vimrc. Your changes will be lost after updating your vimrc configuration.
+
+To customize your vim, edit `~/.vimrc.before.local`, `~/.vimrc.after.local` and `~/.vimrc.plugin.local`, respectively.
+
+1. `~/.vimrc.before.local`: loaded at the very beginning of `~/.vimrc`.
+
+    Enable extra features by setting `g:tdvimrc_features` in this file.
+    An example is:
+
+    ```VimL
+    " The following statement enables all the extra features td-vimrc supports.
+    " Remove unwanted features from the list. Set it to [] to disable all extra
+    " features. See [Features] for the descriptions of each extra feature.
+    let g:tdvimrc_features = ["golang", "html", "tmux"]
+    ```
+
+    Every time the features are changed, run `:PluginClean` and `:PluginInstall` in vim to apply the changes.
+
+2. `~/.vimrc.plugin.local`: loaded while loading Vundle plugins.
+
+    Add your plugins to this file. An example is:
+
+    ```VimL
+    " Ctrl-P helps finding files faster.
+    Plugin 'kien/ctrlp.vim'
+    ```
+
+    Every time plugins are added or removed, run `:PluginClean` and `:PluginInstall` in vim to apply the changes.
+
+3. `~/.vimrc.after.local`: loaded at the very end of `~/.vimrc`.
+
+    Override tdvimrc's default configuration and add your own commands in this file.
 
 ## Snapshots ##
 
