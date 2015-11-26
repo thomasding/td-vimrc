@@ -232,6 +232,8 @@ of tabs.
 
     * Show git status in NERDTree by [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
 
+5. **Powerful plugin management with [Vundle](https://github.com/VundleVim/Vundle.vim).**
+
 ### Extra Feature "golang" ###
 
 * Full golang development environment with [vim-go](https://github.com/fatih/vim-go).
