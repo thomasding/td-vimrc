@@ -11,6 +11,8 @@ of the vim snapshots.
 Installation
 ==============
 
+$ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
+
 1. Clone this repository into your home directory:
 
     $ git clone https://github.com/thomasding/td-vimrc.git ~/.td-vimrc
