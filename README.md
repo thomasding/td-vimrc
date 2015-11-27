@@ -94,6 +94,7 @@ In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be i
 1. **Enhance editing experience:**
 
     * Map `jj` to `<Esc>` in Insert mode.
+    * Set leader key to `,`.
     * Show relative line number.
 
         > Relative line number makes it faster to jump to a farther line. Jump to the
@@ -174,6 +175,8 @@ of tabs.
     * Quickly align many lines with one command by [tabular](https://github.com/godlygeek/tabular).
 
         > See [Aligning text with tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) for an introduction to tabular.
+
+    * Toggle indent hint with key `,ig` by [vim-indent-guide](https://github.com/nathanaelkane/vim-indent-guides).
 
 2. **Beautify the appearance of VIM:**
 

@@ -103,6 +103,8 @@ endif
     Plugin 'majutsushi/tagbar'
     " Tabular
     Plugin 'godlygeek/tabular'
+    " Indent guide
+    Plugin 'nathanaelkane/vim-indent-guides'
 
     if has('lua')
         " Excellent autocompletion.
