@@ -258,6 +258,10 @@ endif
         let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
     endif
     " }}}
+    " Indent Guide {{{
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_start_level = 2
+    " }}}
 " }}}
 
 " GUI and console {{{
