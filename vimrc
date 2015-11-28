@@ -159,8 +159,6 @@ endif
         set laststatus=2
         " Show the buffer line on the top.
         let g:airline#extensions#tabline#enabled = 1
-        " Disable powerline fonts.
-        let g:airline_powerline_fonts=0
     " }}}
     " NerdTree {{{
         "Toogle key binding.
@@ -264,6 +262,17 @@ endif
     " Indent Guide {{{
         let g:indent_guides_guide_size = 1
         let g:indent_guides_start_level = 2
+    " }}}
+    " Tmuxline {{{
+    if index(g:tdvimrc_features, "tmux") != -1
+        let g:tmuxline_powerline_separators = 0
+        let g:tmuxline_separators = {
+            \ 'left"      : '',
+            \ 'left_alt'  : '>',
+            \ 'right'     : '',
+            \ 'right_alt' : '<',
+            \ 'space'     : ' '}
+    endif
     " }}}
 " }}}
 
