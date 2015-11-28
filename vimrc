@@ -157,7 +157,10 @@ endif
     " Airline {{{
         " Always show the airline.
         set laststatus=2
+        " Show the buffer line on the top.
         let g:airline#extensions#tabline#enabled = 1
+        " Disable powerline fonts.
+        let g:airline_powerline_fonts=0
     " }}}
     " NerdTree {{{
         "Toogle key binding.
