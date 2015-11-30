@@ -132,6 +132,13 @@ endif
         Plugin 'fatih/vim-go'
     endif
 
+    if index(g:tdvimrc_features, "python") != -1
+        " Python autocomplete
+        Plugin 'davidhalter/jedi-vim'
+        " Python autoformatting
+        Plugin 'hynek/vim-python-pep8-indent'
+    endif
+
     " Load customized plugins
     if filereadable(glob("~/.vimrc.plugin.local"))
         source ~/.vimrc.plugin.local
