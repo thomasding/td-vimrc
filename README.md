@@ -24,10 +24,10 @@ and `~/.vimrc.plugin.local`, which are well self-documented.
 Then, it installs all the plugins and set up tmux related plugins if the installation is run
 in a tmux session.
 
-    For Tmux
+> **For Tmux**
 
-    Run the installation in a tmux session so that it sets up the tmux
-    related plugins for you. Otherwise, you are able to set them up manually.
+> Run the installation in a tmux session so that it sets up the tmux
+> related plugins for you. Otherwise, you are able to set them up manually.
 
 ### The Manual Way ###
 
