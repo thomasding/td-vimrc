@@ -12,29 +12,20 @@ Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins now.
 
 In OS X and Linux where `curl` is installed, td-vimrc can be installed with one command in the terminal:
 
-1. **Clone the vimrc into your home directory:**
+```shell
+$ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
+```
 
-    ```shell
-    $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
-    ```
+It will clone td-vimrc into ~/.td-vimrc, clone Vundle (the package manager that
+this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
+create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
+and `~/.vimrc.plugin.local`, which are well self-documented.
 
-    It will clone td-vimrc into ~/.td-vimrc, clone Vundle (the package manager that
-    this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
-    create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
-    and `~/.vimrc.plugin.local`, which are well self-documented.
+Then, it installs all the plugins and set up tmux related plugins if the installation is run
+in a tmux session.
 
-2. **Enable extra features (optional):**
-
-    Edit `~/.vimrc.before.local`and enable the features that you need. The extra
-    features are mostly related to specific languages or terminal utilities. Skip
-    this step if the basic feature is enough (see [Features] for what td-vimrc
-    utilizes for a basic feature and extra features).
-
-3. **Install all the plugins:**
-
-    Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
-    the plugins that td-vimrc requires for all the enabled features.
-
+    **For tmux user:** Run the installation in a tmux session so that it sets up the tmux
+    related plugins for you. Otherwise, you are able to set them up manually.
 
 ### The Manual Way ###
 
