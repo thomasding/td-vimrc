@@ -105,6 +105,8 @@ endif
     Plugin 'godlygeek/tabular'
     " Indent guide
     Plugin 'nathanaelkane/vim-indent-guides'
+    " Python autocompletion
+    Plugin 'davidhalter/jedi-vim'
 
     if has('lua')
         " Excellent autocompletion.
@@ -274,6 +276,16 @@ endif
             \ 'space'     : ' '}
     endif
     " }}}
+    " Jedi {{{
+        let g:jedi#completions_enabled = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#smart_auto_mappings = 0
+        if !exists('g:neocomplete#force_omni_input_patterns')
+            let g:neocomplete#force_omni_input_patterns = {}
+        endif
+        let g:neocomplete#force_omni_input_patterns.python =
+            \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " }}}
 " }}}
 
 " GUI and console {{{
@@ -323,6 +335,8 @@ endif
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
         " Remove unwanted trailing spaces on save.
         autocmd BufWritePre * :call <SID>tdvimrc_strip_spaces()
+        " Use jedi in python
+        autocmd FileType python setlocal omnifunc=jedi#completions
     augroup END
 " }}}
 
