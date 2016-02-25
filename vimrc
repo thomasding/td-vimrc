@@ -46,7 +46,7 @@ endif
     set nobackup
     set noswapfile
     " Set leader key to comma.
-    let mapleader=','
+    let mapleader='\'
     " Use dark background in color scheme.
     set background=dark
     " Enable case-insensitive incremental search and highlight.
@@ -107,6 +107,8 @@ endif
     Plugin 'nathanaelkane/vim-indent-guides'
     " Python autocompletion
     Plugin 'davidhalter/jedi-vim'
+    " Python style checker
+    Plugin 'nvie/vim-flake8'
 
     if has('lua')
         " Excellent autocompletion.
@@ -337,6 +339,8 @@ endif
         autocmd BufWritePre * :call <SID>tdvimrc_strip_spaces()
         " Use jedi in python
         autocmd FileType python setlocal omnifunc=jedi#completions
+        " Map \p to flake8 in python
+        autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
     augroup END
 " }}}
 
