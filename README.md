@@ -87,7 +87,7 @@ In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be i
 1. **Enhance editing experience:**
 
     * Map `jj` to `<Esc>` in Insert mode.
-    * Set leader key to `,`.
+    * Set leader key to `\`.
     * Show relative line number.
 
         > Relative line number makes it faster to jump to a farther line. Jump to the
@@ -158,7 +158,7 @@ of tabs.
 
     * Demonstrates variable, function and class definitions in the current file with [tagbar](https://github.com/majutsushi/tagbar).
 
-        > Press `,t` in Normal mode to toggle the tagbar.
+        > Press `\t` in Normal mode to toggle the tagbar.
 
         > Tagbar uses [exuberant ctags](http://ctags.sourceforge.net) to process the editing file in memory.
         > It does not refer to any real tags file.
@@ -169,7 +169,7 @@ of tabs.
 
         > See [Aligning text with tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) for an introduction to tabular.
 
-    * Toggle indent hint with key `,ig` by [vim-indent-guide](https://github.com/nathanaelkane/vim-indent-guides).
+    * Toggle indent hint with key `\ig` by [vim-indent-guide](https://github.com/nathanaelkane/vim-indent-guides).
 
 2. **Beautify the appearance of VIM:**
 
@@ -211,9 +211,9 @@ of tabs.
 
     * Show your project directory in tree structure with [NERDTree](https://github.com/scrooloose/nerdtree).
 
-        > Press `,n` in Normal mode to jump to the NERDTree window, opening it if hidden.
+        > Press `\n` in Normal mode to jump to the NERDTree window, opening it if hidden.
 
-        > Press `,N` in Normal mode to toggle the NERDTree window.
+        > Press `\N` in Normal mode to toggle the NERDTree window.
 
         > Here are some most frequent key bindings used in NEDTree window:
 
@@ -235,11 +235,11 @@ of tabs.
 
         | Shortcut | Command  | Description                                                                                    |
         | -------- | -------- | ---------------------------------------------------------------------------------------------  |
-        | ,gs      | :Gstatus | Show the status of the repo. Press `-` on a file to toggle between staged and unstaged state.  |
-        | ,gw      | :Gwrite  | Save the buffer and stage it in the repo                                                       |
-        | ,gc      | :Gcommit | Bring up a commit window. Press `:wq` in it to apply the commit or `:q!` to abandon the commit |
-        | ,gd      | :Gdiff   | Diff the file with the one in HEAD                                                             |
-        | ,gb      | :Gblame  | Blame the file                                                                                 |
+        | \gs      | :Gstatus | Show the status of the repo. Press `-` on a file to toggle between staged and unstaged state.  |
+        | \gw      | :Gwrite  | Save the buffer and stage it in the repo                                                       |
+        | \gc      | :Gcommit | Bring up a commit window. Press `:wq` in it to apply the commit or `:q!` to abandon the commit |
+        | \gd      | :Gdiff   | Diff the file with the one in HEAD                                                             |
+        | \gb      | :Gblame  | Blame the file                                                                                 |
 
         > See [fugitive](https://github.com/tpope/vim-fugitive) for more documentation.
 
@@ -248,6 +248,14 @@ of tabs.
     * Show git status in NERDTree by [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
 
 5. **Powerful plugin management with [Vundle](https://github.com/VundleVim/Vundle.vim).**
+
+6. **Great python experience:**
+
+    * Intelligent completion with jedi (working with neocomplete).
+
+    * Use `\p` in python file to call flake8 to check the syntax and style:
+
+        > Using flake8 requires flake8 to be installed in your computer.
 
 ### Extra Feature "golang" ###
 
