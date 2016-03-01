@@ -46,7 +46,7 @@ endif
     set nobackup
     set noswapfile
     " Set leader key to comma.
-    let mapleader=','
+    let mapleader='\'
     " Use dark background in color scheme.
     set background=dark
     " Enable case-insensitive incremental search and highlight.
@@ -105,6 +105,10 @@ endif
     Plugin 'godlygeek/tabular'
     " Indent guide
     Plugin 'nathanaelkane/vim-indent-guides'
+    " Python autocompletion
+    Plugin 'davidhalter/jedi-vim'
+    " Python style checker
+    Plugin 'nvie/vim-flake8'
 
     if has('lua')
         " Excellent autocompletion.
@@ -281,6 +285,16 @@ endif
             \ 'space'     : ' '}
     endif
     " }}}
+    " Jedi {{{
+        let g:jedi#completions_enabled = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#smart_auto_mappings = 0
+        if !exists('g:neocomplete#force_omni_input_patterns')
+            let g:neocomplete#force_omni_input_patterns = {}
+        endif
+        let g:neocomplete#force_omni_input_patterns.python =
+            \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " }}}
 " }}}
 
 " GUI and console {{{
@@ -330,6 +344,10 @@ endif
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
         " Remove unwanted trailing spaces on save.
         autocmd BufWritePre * :call <SID>tdvimrc_strip_spaces()
+        " Use jedi in python
+        autocmd FileType python setlocal omnifunc=jedi#completions
+        " Map \p to flake8 in python
+        autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
     augroup END
 " }}}
 

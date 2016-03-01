@@ -12,29 +12,22 @@ Utilize **NERDTree**, **Fugitive**, **Ctrl-P**, and many excellent plugins now.
 
 In OS X and Linux where `curl` is installed, td-vimrc can be installed with one command in the terminal:
 
-1. **Clone the vimrc into your home directory:**
+```shell
+$ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
+```
 
-    ```shell
-    $ curl https://raw.githubusercontent.com/thomasding/td-vimrc/master/install.sh | sh -
-    ```
+It will clone td-vimrc into ~/.td-vimrc, clone Vundle (the package manager that
+this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
+create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
+and `~/.vimrc.plugin.local`, which are well self-documented.
 
-    It will clone td-vimrc into ~/.td-vimrc, clone Vundle (the package manager that
-    this vimrc uses, which need cloning manually) into ~/.vim/bundle/Vundle.vim, and
-    create local customizable vimrc files `~/.vimrc.before.local`, `~/.vimrc.after.local`
-    and `~/.vimrc.plugin.local`, which are well self-documented.
+Then, it installs all the plugins and set up tmux related plugins if the installation is run
+in a tmux session.
 
-2. **Enable extra features (optional):**
+> **For Tmux**
 
-    Edit `~/.vimrc.before.local`and enable the features that you need. The extra
-    features are mostly related to specific languages or terminal utilities. Skip
-    this step if the basic feature is enough (see [Features] for what td-vimrc
-    utilizes for a basic feature and extra features).
-
-3. **Install all the plugins:**
-
-    Run `:PluginInstall` in VIM or `vim +PluginInstall +qa` in terminal to install
-    the plugins that td-vimrc requires for all the enabled features.
-
+> Run the installation in a tmux session so that it sets up the tmux
+> related plugins for you. Otherwise, you are able to set them up manually.
 
 ### The Manual Way ###
 
@@ -94,7 +87,7 @@ In Windows or OS X and Linux where `curl` is not available, td-vimrc has to be i
 1. **Enhance editing experience:**
 
     * Map `jj` to `<Esc>` in Insert mode.
-    * Set leader key to `,`.
+    * Set leader key to `\`.
     * Show relative line number.
 
         > Relative line number makes it faster to jump to a farther line. Jump to the
@@ -165,7 +158,7 @@ of tabs.
 
     * Demonstrates variable, function and class definitions in the current file with [tagbar](https://github.com/majutsushi/tagbar).
 
-        > Press `,t` in Normal mode to toggle the tagbar.
+        > Press `\t` in Normal mode to toggle the tagbar.
 
         > Tagbar uses [exuberant ctags](http://ctags.sourceforge.net) to process the editing file in memory.
         > It does not refer to any real tags file.
@@ -176,7 +169,7 @@ of tabs.
 
         > See [Aligning text with tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) for an introduction to tabular.
 
-    * Toggle indent hint with key `,ig` by [vim-indent-guide](https://github.com/nathanaelkane/vim-indent-guides).
+    * Toggle indent hint with key `\ig` by [vim-indent-guide](https://github.com/nathanaelkane/vim-indent-guides).
 
 2. **Beautify the appearance of VIM:**
 
@@ -218,9 +211,9 @@ of tabs.
 
     * Show your project directory in tree structure with [NERDTree](https://github.com/scrooloose/nerdtree).
 
-        > Press `,n` in Normal mode to jump to the NERDTree window, opening it if hidden.
+        > Press `\n` in Normal mode to jump to the NERDTree window, opening it if hidden.
 
-        > Press `,N` in Normal mode to toggle the NERDTree window.
+        > Press `\N` in Normal mode to toggle the NERDTree window.
 
         > Here are some most frequent key bindings used in NEDTree window:
 
@@ -242,11 +235,11 @@ of tabs.
 
         | Shortcut | Command  | Description                                                                                    |
         | -------- | -------- | ---------------------------------------------------------------------------------------------  |
-        | ,gs      | :Gstatus | Show the status of the repo. Press `-` on a file to toggle between staged and unstaged state.  |
-        | ,gw      | :Gwrite  | Save the buffer and stage it in the repo                                                       |
-        | ,gc      | :Gcommit | Bring up a commit window. Press `:wq` in it to apply the commit or `:q!` to abandon the commit |
-        | ,gd      | :Gdiff   | Diff the file with the one in HEAD                                                             |
-        | ,gb      | :Gblame  | Blame the file                                                                                 |
+        | \gs      | :Gstatus | Show the status of the repo. Press `-` on a file to toggle between staged and unstaged state.  |
+        | \gw      | :Gwrite  | Save the buffer and stage it in the repo                                                       |
+        | \gc      | :Gcommit | Bring up a commit window. Press `:wq` in it to apply the commit or `:q!` to abandon the commit |
+        | \gd      | :Gdiff   | Diff the file with the one in HEAD                                                             |
+        | \gb      | :Gblame  | Blame the file                                                                                 |
 
         > See [fugitive](https://github.com/tpope/vim-fugitive) for more documentation.
 
@@ -255,6 +248,14 @@ of tabs.
     * Show git status in NERDTree by [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
 
 5. **Powerful plugin management with [Vundle](https://github.com/VundleVim/Vundle.vim).**
+
+6. **Great python experience:**
+
+    * Intelligent completion with jedi (working with neocomplete).
+
+    * Use `\p` in python file to call flake8 to check the syntax and style:
+
+        > Using flake8 requires flake8 to be installed in your computer.
 
 ### Extra Feature "golang" ###
 
