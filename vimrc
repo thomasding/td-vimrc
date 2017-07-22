@@ -27,8 +27,6 @@ endif
     set ruler
     " Use syntax highlighting.
     syntax on
-    " Remap Escape to more convenient jj.
-    inoremap jj <esc>
     " Use space instead of tab.
     set expandtab
     " Set indentation to 4 space by default.
@@ -105,14 +103,14 @@ endif
     Plugin 'godlygeek/tabular'
     " Indent guide
     Plugin 'nathanaelkane/vim-indent-guides'
-    " Python autocompletion
-    Plugin 'davidhalter/jedi-vim'
-    " Python style checker
-    Plugin 'nvie/vim-flake8'
+    " YCM
+    Plugin 'Valloric/YouCompleteMe'
 
-    if has('lua')
-        " Excellent autocompletion.
-        Plugin 'Shougo/neocomplete.vim'
+    if index(g:tdvimrc_features, "python") != -1
+        " Python style checker
+        Plugin 'nvie/vim-flake8'
+        " Pep8 indent
+        Plugin 'hynek/vim-python-pep8-indent'
     endif
 
     if index(g:tdvimrc_features, "web") != -1
@@ -199,77 +197,6 @@ endif
     " Tagbar {{{
         nnoremap <leader>t :TagbarToggle<CR>
     " }}}
-    " Neocomplete {{{
-    if has('lua')
-        let g:acp_enableAtStartup = 0
-        let g:neocomplete#enable_at_startup = 1
-        " Use smartcase.
-        let g:neocomplete#enable_smart_case = 1
-        " Set minimum syntax keyword length.
-        let g:neocomplete#sources#syntax#min_keyword_length = 3
-        let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-        " Define dictionary.
-        let g:neocomplete#sources#dictionary#dictionaries = {
-                    \ 'default' : '',
-                    \ 'vimshell' : $HOME.'/.vimshell_hist',
-                    \ 'scheme' : $HOME.'/.gosh_completions'
-                    \ }
-
-        " Define keyword.
-        if !exists('g:neocomplete#keyword_patterns')
-            let g:neocomplete#keyword_patterns = {}
-        endif
-        let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-        " Plugin key-mappings.
-        inoremap <expr><C-g>     neocomplete#undo_completion()
-        inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-        " Recommended key-mappings.
-        " <CR>: close popup and save indent.
-        inoremap <silent> <CR> <C-r>=<SID>tdvimrc_cr_function()<CR>
-        function! <SID>tdvimrc_cr_function()
-            return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-            " For no inserting <CR> key.
-            "return pumvisible() ? "\<C-y>" : "\<CR>"
-        endfunction
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-        " <C-h>, <BS>: close popup and delete backword char.
-        "noremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-        "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-        " Close popup by <Space>.
-        " inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-        " AutoComplPop like behavior.
-        "let g:neocomplete#enable_auto_select = 1
-
-        " Shell like behavior(not recommended).
-        "set completeopt+=longest
-        "let g:neocomplete#enable_auto_select = 1
-        "let g:neocomplete#disable_auto_complete = 1
-        "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplete#sources#omni#input_patterns')
-            let g:neocomplete#sources#omni#input_patterns = {}
-        endif
-        let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-        " For perlomni.vim setting.
-        " https://github.com/c9s/perlomni.vim
-        let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    endif
-    " }}}
     " Indent Guide {{{
         let g:indent_guides_guide_size = 1
         let g:indent_guides_start_level = 2
@@ -284,16 +211,6 @@ endif
             \ 'right_alt' : '<',
             \ 'space'     : ' '}
     endif
-    " }}}
-    " Jedi {{{
-        let g:jedi#completions_enabled = 0
-        let g:jedi#auto_vim_configuration = 0
-        let g:jedi#smart_auto_mappings = 0
-        if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
-        endif
-        let g:neocomplete#force_omni_input_patterns.python =
-            \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     " }}}
 " }}}
 
@@ -344,8 +261,6 @@ endif
         autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
         " Remove unwanted trailing spaces on save.
         autocmd BufWritePre * :call <SID>tdvimrc_strip_spaces()
-        " Use jedi in python
-        autocmd FileType python setlocal omnifunc=jedi#completions
         " Map \p to flake8 in python
         autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
     augroup END
