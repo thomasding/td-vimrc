@@ -27,8 +27,6 @@ endif
     set ruler
     " Use syntax highlighting.
     syntax on
-    " Remap Escape to more convenient jj.
-    inoremap jj <esc>
     " Use space instead of tab.
     set expandtab
     " Set indentation to 4 space by default.
@@ -105,10 +103,15 @@ endif
     Plugin 'godlygeek/tabular'
     " Indent guide
     Plugin 'nathanaelkane/vim-indent-guides'
-    " Python style checker
-    Plugin 'nvie/vim-flake8'
     " YCM
     Plugin 'Valloric/YouCompleteMe'
+
+    if index(g:tdvimrc_features, "python") != -1
+        " Python style checker
+        Plugin 'nvie/vim-flake8'
+        " Pep8 indent
+        Plugin 'hynek/vim-python-pep8-indent'
+    endif
 
     if index(g:tdvimrc_features, "web") != -1
         " Emmet
